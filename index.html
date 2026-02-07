@@ -3,8 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Valentine Rara & Dzaky ❤️</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
 <style>
-* {margin:0;padding:0;box-sizing:border-box;font-family:'Comic Sans MS',cursive;}
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
 
 body {
   height:100vh;
@@ -12,6 +22,7 @@ body {
   background:linear-gradient(135deg,#ff2e63,#ff6f91,#ffc1cc);
 }
 
+/* Pages */
 .page {
   display:none;
   position:absolute;
@@ -19,19 +30,24 @@ body {
   height:100%;
   color:white;
   text-align:center;
-  padding:80px 40px;
+
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  padding:40px 20px;
 }
 
-.page.active {display:block;}
+.page.active {display:flex;}
+.page * {position:relative;z-index:5;}
 
 h1 {
   font-size:52px;
   text-shadow:3px 3px 6px #000;
-  margin-bottom:30px;
-  z-index:10;
-  position:relative;
+  margin-bottom:25px;
 }
 
+/* Buttons */
 button {
   font-size:32px;
   padding:18px 50px;
@@ -40,7 +56,7 @@ button {
   background:#ff004c;
   color:white;
   cursor:pointer;
-  margin:20px;
+  margin:15px;
   box-shadow:0 0 15px rgba(0,0,0,0.4);
 }
 
@@ -49,7 +65,9 @@ button {
   position:absolute;
   font-size:70px;
   animation:float 12s infinite linear;
-  opacity:0.8;
+  opacity:0.7;
+  pointer-events:none;
+  z-index:0;
 }
 
 @keyframes float {
@@ -63,7 +81,7 @@ button {
   grid-template-columns:repeat(7,1fr);
   gap:15px;
   max-width:600px;
-  margin:40px auto;
+  margin:30px auto;
 }
 
 .calendar div {
@@ -113,21 +131,51 @@ button {
 /* Photos background */
 .photo {
   position:absolute;
-  width:400px;
+  width:35vw;
+  max-width:260px;
+  min-width:140px;
   border-radius:25px;
-  opacity:0.85;
-  z-index:1;
-  animation:drift 10s infinite alternate;
+  opacity:0.3;
+  z-index:0;
+  pointer-events:none;
+  filter:blur(1px);
+  animation:floatPhoto 18s infinite linear;
 }
 
-@keyframes drift {
-  from {transform:translate(0,0);}
-  to {transform:translate(200px,150px);}
+@keyframes floatPhoto {
+  0%   {transform:translate(0,0) rotate(-3deg);}
+  25%  {transform:translate(80px,60px) rotate(2deg);}
+  50%  {transform:translate(-40px,120px) rotate(-2deg);}
+  75%  {transform:translate(60px,-40px) rotate(3deg);}
+  100% {transform:translate(0,0) rotate(-3deg);}
 }
 
 .big-love {
   font-size:80px;
-  margin-top:40px;
+  margin-top:20px;
+}
+
+/* Romantic font */
+.couple-name {
+  font-family:'Great Vibes', cursive;
+  font-size:100px;
+  letter-spacing:3px;
+  text-shadow:3px 3px 10px rgba(255,0,80,0.8);
+}
+
+/* Mobile */
+@media (max-width:768px){
+  h1 {font-size:32px;}
+  button {
+    font-size:22px;
+    padding:14px 30px;
+  }
+  .photo {
+    width:45vw;
+    opacity:0.25;
+  }
+  .big-love {font-size:48px;}
+  .couple-name {font-size:60px;}
 }
 </style>
 </head>
@@ -174,18 +222,19 @@ for(let i=0;i<18;i++){
 
 <!-- PAGE 4 -->
 <div class="page">
-  <h1>Selamat Hari Valentine Sengg,<br>Kamu yang pertama aku ucapin buat Hari Kasih Sayang ini.</h1>
+  <h1>Selamat Hari Valentine Sengg,<br>
+  Kamu yang pertama aku ucapin buat Hari Kasih Sayang ini.</h1>
   <button onclick="prev()">⬅ Prev</button>
   <button onclick="next()">Next ➡</button>
 </div>
 
 <!-- PAGE 5 -->
 <div class="page">
-  <img src="foto1.jpg" class="photo" style="top:40px;left:40px;animation-duration:12s">
-  <img src="foto2.jpg" class="photo" style="top:100px;right:50px;animation-duration:14s">
-  <img src="foto3.jpg" class="photo" style="bottom:80px;left:20px;animation-duration:10s">
-  <img src="foto4.jpg" class="photo" style="bottom:40px;right:120px;animation-duration:16s">
-  <img src="foto5.jpg" class="photo" style="top:220px;left:380px;animation-duration:16s">
+  <img src="foto1.jpg" class="photo" style="top:40px;left:40px;">
+  <img src="foto2.jpg" class="photo" style="top:100px;right:50px;">
+  <img src="foto3.jpg" class="photo" style="bottom:80px;left:20px;">
+  <img src="foto4.jpg" class="photo" style="bottom:40px;right:120px;">
+  <img src="foto5.jpg" class="photo" style="top:220px;left:380px;">
 
   <h1>Gada harapan lebih selain tumbuh dan berkembang bersama.<br>
   Tantangan di hubungan pasti ada dan semoga kita bisa lewatin apapun itu bersama.</h1>
@@ -197,7 +246,7 @@ for(let i=0;i<18;i++){
 <!-- PAGE 6 -->
 <div class="page">
   <h1>Sampai jumpa di hari spesialmu berikutnya 😘😋</h1>
-  <div class="big-love">❤️ Rara & Dzaky ❤️</div>
+  <div class="big-love couple-name">❤️ Rara & Dzaky ❤️</div>
   <button onclick="prev()">⬅ Prev</button>
 </div>
 
@@ -210,8 +259,19 @@ function show(n){
   pages[n].classList.add("active");
 }
 
-function next(){ if(current<pages.length-1){current++;show(current);} }
-function prev(){ if(current>0){current--;show(current);} }
+function next(){
+  if(current<pages.length-1){
+    current++;
+    show(current);
+  }
+}
+
+function prev(){
+  if(current>0){
+    current--;
+    show(current);
+  }
+}
 </script>
 
 </body>
